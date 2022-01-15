@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+}
+
+.wrapper{
+    display: grid;
+    min-height: 100vh;
+
+    grid-template-columns: /*1*/auto /*2*/35% /*3*/35% /*4*/auto /*5*/;
+    grid-template-rows: /*1*/9rem /*2*/auto /*3*/auto /*4*/4rem /*5*/;
+}
+.header{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 1/2;
+    grid-column: 2/4;
+
+    font-family: 'Trajan Pro 3';
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+    border: 1px solid red;
+    background-color: white;
+ 
+    grid-row: 1/2;
+    grid-column: 4/5;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.nav a{
+    text-decoration: none;
+    font-family: 'Trajan Pro 3';
+    font-size: 9px;
+    font-weight: lighter;
+
+    padding: 0rem 0rem 0rem 1rem;
+}
+
+.sidebar_left{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 2/4;
+    grid-column: 1/2;
+
+    font-family: 'Trajan Pro 3';
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: left;
+    align-items: flex-start;
+
+}
+.sidebar_right{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 2/4;
+    grid-column: 4/5;
+
+    font-family: 'Trajan Pro 3';
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: left;
+    align-items: flex-start;
+
+}
+.footer{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 4/5;
+    grid-column: 2/4;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* GAME GRID * /
+  /**/
+.game-grid{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 3/4;
+    grid-column: 2/4;
+
+    display: grid;
+    grid-template-columns: 50% 50%; /**/
+    grid-template-rows: 50% 50%;
+}
+.ruta{
+    /* border: 1px solid red; */
+}
+
+
