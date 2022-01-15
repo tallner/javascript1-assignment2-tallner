@@ -1,29 +1,26 @@
+let scoreBoard = [0,0];
+let playerName = '';
 const pictures = ['img/sten.png','img/sax.png','img/pase.jpg'];
+
 const userScore = document.querySelector('#user-score');
 const computerScore = document.querySelector('#computer-score');
-let scoreBoard = [0,0];
-
-const playerName = document.querySelector('.player-name');
-playerName.addEventListener('keypress', pressEnter);
-playerName.addEventListener('click',e => playerName.value='');
-
 const btnTryAgain = document.querySelector('.footer > button');
-btnTryAgain.addEventListener('click', tryAgain);
+const input = document.querySelector('.player-name');
+
+input.addEventListener('keypress', pressEnter);
+input.addEventListener('click',e => input.value='');
+btnTryAgain.addEventListener('click', e => resetGrid());
+btnTryAgain.addEventListener('click', e => input.value = 'enter your name');
 
 function pressEnter(e){
     if(e.key === 'Enter'){
-        playerName.style.textAlign = 'center';
-        playerName.style.border = 'white solid 0px';
-        playerName.blur();
+        playerName = input.value;
+        input.style.textAlign = 'center';
+        input.style.border = 'white solid 0px';
+        input.blur();
         resetGrid();
         setGrid();
     }
-}
-
-function tryAgain(e){
-    //reset everyting to default
-    playerName.value = 'enter your name';
-    resetGrid();
 }
 
 function setGrid() {
@@ -80,19 +77,23 @@ function resetGrid() {
     scoreBoard = [0,0];
     userScore.innerText = ``;
     computerScore.innerText = ``;
+
+    
 }
 
 function userSelection(userSelection){
     const user = userSelection.target.innerHTML;
     const computer = computerResult();
     const winner = compareResult(user, computer);
-    countResult(winner);
+    const masterOfSSP = countResult(winner);
 
     userSelection.target.style.border = 'red solid 3px'
     setcomputerImage(computer);
     alert(winner);
     setcomputerImage('img/computer.png');
     userSelection.target.style.border = 'red solid 0px'
+
+    if(masterOfSSP != ''){alert(masterOfSSP);}
 
     console.log(userSelection);
 
@@ -107,17 +108,17 @@ function computerResult(){
 
 function compareResult(user,computer){
     let winner = '';
-    console.log(user,computer);
+    console.log(playerName,':',user,computer);
 
     if(user === computer){winner = 'tie';}
     else if(user === 'img/sten.png'){
-        if(computer === 'img/sax.png'){winner = 'user';}
+        if(computer === 'img/sax.png'){winner = playerName;}
         else if(computer === 'img/pase.jpg'){winner = 'computer';}
     }else if(user === 'img/sax.png'){
-        if(computer === 'img/pase.jpg'){winner = 'user';}
+        if(computer === 'img/pase.jpg'){winner = playerName;}
         else if(computer === 'img/sten.png'){winner = 'computer';}
     }else if(user === 'img/pase.jpg'){
-        if(computer === 'img/sten.png'){winner = 'user';}
+        if(computer === 'img/sten.png'){winner = playerName;}
         else if(computer === 'img/sax.png'){winner = 'computer';}
     }
 
@@ -125,20 +126,22 @@ function compareResult(user,computer){
 }
 
 function countResult(winner){
-    scoreBoard[0] += winner==='user';
+    let masterOfSSP = '';
+    scoreBoard[0] += winner===playerName;
     scoreBoard[1] += winner==='computer';
     userScore.innerText = `Score: ${scoreBoard[0]}`;
     computerScore.innerText = `Score: ${scoreBoard[1]}`;
 
+    if(scoreBoard[0]===3){masterOfSSP = `${playerName} is the master of Sten Sax Påse`}
+    else if(scoreBoard[1]===3){masterOfSSP = 'Computer is the master of Sten Sax Påse'}
 
-    console.log(scoreBoard);
-
+    return masterOfSSP;
 
 }
 
 function setcomputerImage(image){
     const computerImage = document.querySelector('.computerImage');
     computerImage.src = image;
-    console.log(computerImage)
+    //console.log(computerImage)
 
 }
