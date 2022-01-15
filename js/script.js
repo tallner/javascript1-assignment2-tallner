@@ -37,7 +37,7 @@ function setGrid() {
     for(let i=0;i<3;i++){
        
         const div = document.createElement("div");
-        // div.style.border = '1px solid black';
+     //   div.style.border = '1px solid black';
         div.style.display = 'flex';
         
         const image = document.createElement('img');
@@ -62,8 +62,6 @@ function setGrid() {
 
     div.appendChild(image);
     computergrid.appendChild(div);
-
-    console.log();
     
 }
 
@@ -82,23 +80,25 @@ function resetGrid() {
 }
 
 function startRound(userSelection){
-    const user = userSelection.target.innerHTML;
+    console.log(userSelection);
+    const user = userSelection.target.firstChild.data;
     const computer = computerResult();
     const winner = compareResult(user, computer);
     const masterOfSSP = countResult(winner);
 
-    userSelection.target.style.border = 'red solid 3px';
+
+    // Nån timing som inte funkar i Chrome här med alert...
+    userSelection.target.style.border = 'red solid 6px';
     setcomputerImage(computer);
     alert(winner);
-    
     setcomputerImage('img/computer.png');
     userSelection.target.style.border = 'red solid 0px'
 
     if(masterOfSSP != ''){alert(masterOfSSP);}
 
-    console.log(userSelection);
+  //  console.log(userSelection);
 
-    console.log('Winner: ', winner, 'Score: ', scoreBoard);
+  //  console.log('Winner: ', winner, 'Score: ', scoreBoard);
     
 }
 

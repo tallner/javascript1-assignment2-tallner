@@ -18,3 +18,4 @@ När spelet är över kan man börja om
 Frågor  
 1. Hur hantera en textinput som är tom? Vill ha en default text isåfall  
 2. Hur gör man en timer som väntar under tiden man visar resultatet?  
+3. varför funkar det inte på chrome?  
