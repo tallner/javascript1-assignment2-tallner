@@ -98,15 +98,60 @@
     border: 1px solid red;
     background-color: white;
 
-    grid-row: 3/4;
+    grid-row: 2/4;
     grid-column: 2/4;
 
     display: grid;
     grid-template-columns: 50% 50%; /**/
-    grid-template-rows: 50% 50%;
+    grid-template-rows: auto auto;
 }
-.ruta{
-    /* border: 1px solid red; */
+.player-result{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 1/2;
+    grid-column: 1/2;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.computer-result{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 1/2;
+    grid-column: 2/3;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.player{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 2/3;
+    grid-column: 1/2;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.computer{
+    border: 1px solid red;
+    background-color: white;
+
+    grid-row: 2/3;
+    grid-column: 2/3;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 
