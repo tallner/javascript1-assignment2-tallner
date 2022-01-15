@@ -1,4 +1,7 @@
 const pictures = ['img/sten.png','img/sax.png','img/pase.jpg'];
+const userScore = document.querySelector('#user-score');
+const computerScore = document.querySelector('#computer-score');
+let scoreBoard = [0,0];
 
 const playerName = document.querySelector('.player-name');
 playerName.addEventListener('keypress', pressEnter);
@@ -66,36 +69,47 @@ function setGrid() {
 }
 
 function userSelection(userSelection){
-    console.log(
-        compareResult(
-            userSelection.target.innerHTML,
-            computerResult()
-        )
-    );
+    const user = userSelection.target.innerHTML;
+    const computer = computerResult();
+    const winner = compareResult(user, computer);
+    countResult(winner);
+
+    console.log('Winner: ', winner, 'Score: ', scoreBoard);
     
 }
 
 function computerResult(){
     const randNr = Math.floor(3*Math.random());
-    //console.log('cpu: ', randNr, pictures[randNr]);
     return pictures[randNr];
 }
 
-function compareResult(user1,user2){
+function compareResult(user,computer){
     let winner = '';
-    console.log(user1,user2);
+    console.log(user,computer);
 
-    if(user1 === user2){winner = 'tie';}
-    else if(user1 === 'img/sten.png'){
-        if(user2 === 'img/sax.png'){winner = 'user1';}
-        else if(user2 === 'img/pase.jpg'){winner = 'user2';}
-    }else if(user1 === 'img/sax.png'){
-        if(user2 === 'img/pase.jpg'){winner = 'user1';}
-        else if(user2 === 'img/sten.png'){winner = 'user2';}
-    }else if(user1 === 'img/pase.jpg'){
-        if(user2 === 'img/sten.png'){winner = 'user1';}
-        else if(user2 === 'img/sax.png'){winner = 'user2';}
+    if(user === computer){winner = 'tie';}
+    else if(user === 'img/sten.png'){
+        if(computer === 'img/sax.png'){winner = 'user';}
+        else if(computer === 'img/pase.jpg'){winner = 'computer';}
+    }else if(user === 'img/sax.png'){
+        if(computer === 'img/pase.jpg'){winner = 'user';}
+        else if(computer === 'img/sten.png'){winner = 'computer';}
+    }else if(user === 'img/pase.jpg'){
+        if(computer === 'img/sten.png'){winner = 'user';}
+        else if(computer === 'img/sax.png'){winner = 'computer';}
     }
 
     return winner;
+}
+
+function countResult(winner){
+    scoreBoard[0] += winner==='user';
+    scoreBoard[1] += winner==='computer';
+    userScore.innerText = `Score: ${scoreBoard[0]}`;
+    computerScore.innerText = `Score: ${scoreBoard[1]}`;
+
+
+    console.log(scoreBoard);
+
+
 }
