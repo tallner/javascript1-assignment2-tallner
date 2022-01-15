@@ -15,7 +15,7 @@
     grid-template-rows: /*1*/9rem /*2*/auto /*3*/auto /*4*/4rem /*5*/;
 }
 .header{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
 
     grid-row: 1/2;
@@ -26,8 +26,8 @@
     justify-content: center;
     align-items: center;
 }
-.nav{
-    border: 1px solid red;
+/* .nav{
+    /* border: 1px solid red; * /
     background-color: white;
  
     grid-row: 1/2;
@@ -44,10 +44,10 @@
     font-weight: lighter;
 
     padding: 0rem 0rem 0rem 1rem;
-}
+} */
 
-.sidebar_left{
-    border: 1px solid red;
+/* .sidebar_left{
+    /* border: 1px solid red; * /
     background-color: white;
 
     grid-row: 2/4;
@@ -60,7 +60,7 @@
 
 }
 .sidebar_right{
-    border: 1px solid red;
+    /* border: 1px solid red; * /
     background-color: white;
 
     grid-row: 2/4;
@@ -71,9 +71,9 @@
     justify-content: left;
     align-items: flex-start;
 
-}
+} */
 .footer{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
 
     grid-row: 4/5;
@@ -89,7 +89,7 @@
 /* GAME GRID * /
   /**/
 .game-grid{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
 
     grid-row: 2/4;
@@ -100,7 +100,7 @@
     grid-template-rows: auto auto;
 }
 .player-result, .computer-result{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
 
     grid-row: 1/2;
@@ -108,13 +108,13 @@
 
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 .player-result{grid-column: 1/2;}
 .computer-result{grid-column: 2/3;}
 .player{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
 
     grid-row: 2/3;
@@ -126,7 +126,7 @@
     align-items: center;
 }
 .computer{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
 
     grid-row: 2/3;

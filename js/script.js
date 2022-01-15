@@ -37,14 +37,14 @@ function setGrid() {
     for(let i=0;i<3;i++){
        
         const div = document.createElement("div");
-        div.style.border = '1px solid black';
+        // div.style.border = '1px solid black';
         div.style.display = 'flex';
         
         const image = document.createElement('img');
         image.src = pictures[i];
         image.innerText = pictures[i];
         image.style.objectFit = 'cover';
-        image.addEventListener('click',userSelection);
+        image.addEventListener('click',startRound);
 
         div.appendChild(image);
         usergrid.appendChild(div);
@@ -52,7 +52,7 @@ function setGrid() {
 
     //draw the computer grid
     const div = document.createElement("div");
-    div.style.border = '1px solid black';
+  //  div.style.border = '1px solid black';
     div.style.display = 'flex';
     
     const image = document.createElement('img');
@@ -81,15 +81,16 @@ function resetGrid() {
     
 }
 
-function userSelection(userSelection){
+function startRound(userSelection){
     const user = userSelection.target.innerHTML;
     const computer = computerResult();
     const winner = compareResult(user, computer);
     const masterOfSSP = countResult(winner);
 
-    userSelection.target.style.border = 'red solid 3px'
+    userSelection.target.style.border = 'red solid 3px';
     setcomputerImage(computer);
     alert(winner);
+    
     setcomputerImage('img/computer.png');
     userSelection.target.style.border = 'red solid 0px'
 
