@@ -7,21 +7,23 @@ const playerName = document.querySelector('.player-name');
 playerName.addEventListener('keypress', pressEnter);
 playerName.addEventListener('click',e => playerName.value='');
 
+const btnTryAgain = document.querySelector('.footer > button');
+btnTryAgain.addEventListener('click', tryAgain);
 
 function pressEnter(e){
     if(e.key === 'Enter'){
         playerName.style.textAlign = 'center';
         playerName.style.border = 'white solid 0px';
         playerName.blur();
+        resetGrid();
+        setGrid();
     }
 }
 
-const btnTryAgain = document.querySelector('.footer > button');
-btnTryAgain.addEventListener('click', tryAgain);
 function tryAgain(e){
     //reset everyting to default
     playerName.value = 'enter your name';
-    setGrid();
+    resetGrid();
 }
 
 function setGrid() {
@@ -52,20 +54,32 @@ function setGrid() {
     }
 
     //draw the computer grid
+    const div = document.createElement("div");
+    div.style.border = '1px solid black';
+    div.style.display = 'flex';
     
-        const div = document.createElement("div");
-        div.style.border = '1px solid black';
-        div.style.display = 'flex';
-        
-        const image = document.createElement('img');
-        image.src = 'img/computer.png';
-        image.style.objectFit = 'cover';
+    const image = document.createElement('img');
+    image.src = 'img/computer.png';
+    image.classList.add('computerImage');
+    image.style.objectFit = 'cover';
 
-        div.appendChild(image);
-        computergrid.appendChild(div);
+    div.appendChild(image);
+    computergrid.appendChild(div);
 
-        console.log();
+    console.log();
     
+}
+
+function resetGrid() {
+    /*set the grid for the player*/
+    const usergridDivs = document.querySelectorAll('.player > div');
+    const computergridDivs = document.querySelectorAll('.computer > div');
+    usergridDivs.forEach(element => {element.remove();});
+    computergridDivs.forEach(element => {element.remove();});
+
+    scoreBoard = [0,0];
+    userScore.innerText = ``;
+    computerScore.innerText = ``;
 }
 
 function userSelection(userSelection){
@@ -73,6 +87,14 @@ function userSelection(userSelection){
     const computer = computerResult();
     const winner = compareResult(user, computer);
     countResult(winner);
+
+    userSelection.target.style.border = 'red solid 3px'
+    setcomputerImage(computer);
+    alert(winner);
+    setcomputerImage('img/computer.png');
+    userSelection.target.style.border = 'red solid 0px'
+
+    console.log(userSelection);
 
     console.log('Winner: ', winner, 'Score: ', scoreBoard);
     
@@ -111,5 +133,12 @@ function countResult(winner){
 
     console.log(scoreBoard);
 
+
+}
+
+function setcomputerImage(image){
+    const computerImage = document.querySelector('.computerImage');
+    computerImage.src = image;
+    console.log(computerImage)
 
 }
