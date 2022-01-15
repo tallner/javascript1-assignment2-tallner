@@ -13,3 +13,7 @@ Spelaren och datorns poäng ska visas i DOM:en
 Först till 3 vinner  
 Vinnaren ska presenteras i DOM:en / eller med en alert  
 När spelet är över kan man börja om   
+
+
+Frågor  
+1. Hur hantera en textinput som är tom? Vill ha en default text isåfall
